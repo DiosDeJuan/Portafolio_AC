@@ -135,6 +135,7 @@ const ARIA_LABELS = {
 
 const INTERACTIVE_CARD_SELECTORS = [".reel-card", ".phone-mockup", ".community-card", ".photo-card"];
 const REDUCED_MOTION_QUERY = window.matchMedia("(prefers-reduced-motion: reduce)");
+const PLACEHOLDER_LINK_PREFIX = "CAMBIAR_AQUI";
 
 const selectOne = (selector, parent = document) => parent.querySelector(selector);
 const selectAll = (selector, parent = document) => Array.from(parent.querySelectorAll(selector));
@@ -224,7 +225,8 @@ function attachImageFallback(imageElement, options = {}) {
   };
 
   imageElement.addEventListener("error", onError, { once: true });
-  if (imageElement.complete && imageElement.naturalWidth === 0) onError();
+  const currentSource = imageElement.getAttribute("src");
+  if (!currentSource || (imageElement.complete && imageElement.naturalWidth === 0)) onError();
 }
 
 function setupImageLoadingAttributes() {
@@ -342,6 +344,12 @@ function setupLightbox() {
   const pageRoot = selectOne(SELECTORS.root);
   let lastFocusedElement = null;
 
+  function isConfiguredUrl(url) {
+    if (!url) return false;
+    if (url === "#") return false;
+    return !url.startsWith(PLACEHOLDER_LINK_PREFIX);
+  }
+
   function closeLightbox() {
     lightboxRoot.classList.remove("is-open");
     lightboxRoot.setAttribute("aria-hidden", "true");
@@ -362,7 +370,7 @@ function setupLightbox() {
     lightboxMedia.innerHTML = "";
     lightboxTitle.textContent = payload.title || "Vista de contenido";
 
-    if (payload.url && !payload.url.startsWith("CAMBIAR_AQUI")) {
+    if (isConfiguredUrl(payload.url)) {
       lightboxAction.href = payload.url;
       lightboxAction.hidden = false;
     } else {
