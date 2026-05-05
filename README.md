@@ -126,7 +126,7 @@ No requiere backend ni build tool.
 
 ## 8) Checklist antes de publicar
 
-- [ ] `node --check scripts.js` sin errores
+- [ ] `node --check scripts.js` sin errores (valida sintaxis JS, no sustituye QA visual/manual en navegador)
 - [ ] Links reales actualizados en `CONFIG.links.*`
 - [ ] Correo/ubicación/usuario actualizados en `CONFIG.brand.*`
 - [ ] Imágenes y videos colocados en rutas `assets/...`
