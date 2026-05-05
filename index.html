@@ -68,7 +68,13 @@
 
           <!-- REEMPLAZAR ROSTRO PRINCIPAL: assets/faces/rostro-principal.png -->
           <figure class="face face--main placeholder-frame">
-            <img data-config-image="faceMain" src="" alt="Rostro principal Ánimo Cabrones" />
+            <img
+              data-config-image="faceMain"
+              data-priority="high"
+              data-fallback-label="Rostro principal Ánimo Cabrones"
+              src=""
+              alt="Rostro principal Ánimo Cabrones"
+            />
           </figure>
           <svg class="crown crown--hero" viewBox="0 0 120 50" aria-hidden="true">
             <path d="M5 45 20 10 40 35 60 5 80 35 100 12 115 45" />
@@ -76,7 +82,13 @@
 
           <!-- REEMPLAZAR ROSTRO LENTES: assets/faces/rostro-lentes.png -->
           <figure class="face face--glasses placeholder-frame">
-            <img data-config-image="faceGlasses" src="" alt="Rostro con lentes Ánimo Cabrones" />
+            <img
+              data-config-image="faceGlasses"
+              data-priority="high"
+              data-fallback-label="Rostro con lentes Ánimo Cabrones"
+              src=""
+              alt="Rostro con lentes Ánimo Cabrones"
+            />
           </figure>
 
           <!-- REEMPLAZAR IMAGEN HERO PRINCIPAL: assets/hero/imagen-principal.jpg -->
@@ -86,16 +98,22 @@
               <p>AQUÍ VA IMAGEN PRINCIPAL</p>
               <p>PORTADA ÁNIMO CABRONES</p>
             </div>
-            <img data-config-image="heroMain" src="" alt="Portada principal Ánimo Cabrones" />
+            <img
+              data-config-image="heroMain"
+              data-priority="high"
+              data-fallback-label="Portada Ánimo Cabrones"
+              src=""
+              alt="Portada principal Ánimo Cabrones"
+            />
           </article>
 
           <aside class="contact-box">
             <p data-brand="email">hola@animocabrones.com</p>
             <p data-brand="location">GDL, JAL</p>
             <nav class="social-links" aria-label="Redes sociales">
-              <a id="instagram-link" href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
-              <a id="tiktok-link" href="#" target="_blank" rel="noopener noreferrer">TikTok</a>
-              <a id="youtube-link" href="#" target="_blank" rel="noopener noreferrer">YouTube</a>
+              <a id="instagram-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram de Ánimo Cabrones">Instagram</a>
+              <a id="tiktok-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Abrir TikTok de Ánimo Cabrones">TikTok</a>
+              <a id="youtube-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Abrir YouTube de Ánimo Cabrones">YouTube</a>
             </nav>
           </aside>
 
@@ -146,30 +164,30 @@
           <p class="tag-list">REELS / TIKTOKS / STORIES / PRODUCT SHOWCASE / NATIVE CONTENT</p>
 
           <div class="phones-grid stagger">
-            <article class="phone-mockup" data-modal-type="video" data-community-index="0">
+            <article class="phone-mockup" data-modal-type="video" data-community-index="0" data-a11y-label="Video 01 Reel">
               <header><strong>Video 01</strong><span>REEL</span></header>
               <!-- REEMPLAZAR CONTENIDO CELULAR 01: assets/community/community-01.mp4 o thumbnail -->
               <div class="placeholder-frame">
-                <img data-community-thumb="0" src="" alt="Video 01 reel" />
-                <button class="play-button" aria-label="Reproducir video 01">▶</button>
+                <img data-community-thumb="0" data-fallback-label="Video 01 Reel" src="" alt="Video 01 reel" />
+                <button type="button" class="play-button" aria-label="Reproducir video 01">▶</button>
               </div>
               <footer></footer>
             </article>
-            <article class="phone-mockup" data-modal-type="video" data-community-index="1">
+            <article class="phone-mockup" data-modal-type="video" data-community-index="1" data-a11y-label="Video 02 Story">
               <header><strong>Video 02</strong><span>STORY</span></header>
               <!-- REEMPLAZAR CONTENIDO CELULAR 02: assets/community/community-02.mp4 o thumbnail -->
               <div class="placeholder-frame">
-                <img data-community-thumb="1" src="" alt="Video 02 story" />
-                <button class="play-button" aria-label="Reproducir video 02">▶</button>
+                <img data-community-thumb="1" data-fallback-label="Video 02 Story" src="" alt="Video 02 story" />
+                <button type="button" class="play-button" aria-label="Reproducir video 02">▶</button>
               </div>
               <footer></footer>
             </article>
-            <article class="phone-mockup" data-modal-type="video" data-community-index="2">
+            <article class="phone-mockup" data-modal-type="video" data-community-index="2" data-a11y-label="Video 03 Review">
               <header><strong>Video 03</strong><span>REVIEW</span></header>
               <!-- REEMPLAZAR CONTENIDO CELULAR 03: assets/community/community-03.mp4 o thumbnail -->
               <div class="placeholder-frame">
-                <img data-community-thumb="2" src="" alt="Video 03 review" />
-                <button class="play-button" aria-label="Reproducir video 03">▶</button>
+                <img data-community-thumb="2" data-fallback-label="Video 03 Review" src="" alt="Video 03 review" />
+                <button type="button" class="play-button" aria-label="Reproducir video 03">▶</button>
               </div>
               <footer></footer>
             </article>
@@ -184,36 +202,36 @@
           </p>
           <div class="reels-grid stagger">
             <!-- REEMPLAZAR IMAGEN REEL 01: assets/reels/reel-01.jpg -->
-            <article class="reel-card" data-modal-type="reel" data-reel-index="0">
+            <article class="reel-card" data-modal-type="reel" data-reel-index="0" data-a11y-label="Reel 01">
               <div class="placeholder-frame">
-                <img data-reel-image="0" src="" alt="Reel 01" />
+                <img data-reel-image="0" data-fallback-label="Reel 01" src="" alt="Reel 01" />
                 <span class="reel-number">01</span>
                 <span class="reel-icon" aria-hidden="true">◉</span>
               </div>
               <footer><strong>10.5K views</strong><span>610 interacciones</span></footer>
             </article>
             <!-- REEMPLAZAR IMAGEN REEL 02: assets/reels/reel-02.jpg -->
-            <article class="reel-card" data-modal-type="reel" data-reel-index="1">
+            <article class="reel-card" data-modal-type="reel" data-reel-index="1" data-a11y-label="Reel 02">
               <div class="placeholder-frame">
-                <img data-reel-image="1" src="" alt="Reel 02" />
+                <img data-reel-image="1" data-fallback-label="Reel 02" src="" alt="Reel 02" />
                 <span class="reel-number">02</span>
                 <span class="reel-icon" aria-hidden="true">◉</span>
               </div>
               <footer><strong>21.7K views</strong><span>1.4K interacciones</span></footer>
             </article>
             <!-- REEMPLAZAR IMAGEN REEL 03: assets/reels/reel-03.jpg -->
-            <article class="reel-card" data-modal-type="reel" data-reel-index="2">
+            <article class="reel-card" data-modal-type="reel" data-reel-index="2" data-a11y-label="Reel 03">
               <div class="placeholder-frame">
-                <img data-reel-image="2" src="" alt="Reel 03" />
+                <img data-reel-image="2" data-fallback-label="Reel 03" src="" alt="Reel 03" />
                 <span class="reel-number">03</span>
                 <span class="reel-icon" aria-hidden="true">◉</span>
               </div>
               <footer><strong>15.1K views</strong><span>848 interacciones</span></footer>
             </article>
             <!-- REEMPLAZAR IMAGEN REEL 04: assets/reels/reel-04.jpg -->
-            <article class="reel-card" data-modal-type="reel" data-reel-index="3">
+            <article class="reel-card" data-modal-type="reel" data-reel-index="3" data-a11y-label="Reel 04">
               <div class="placeholder-frame">
-                <img data-reel-image="3" src="" alt="Reel 04" />
+                <img data-reel-image="3" data-fallback-label="Reel 04" src="" alt="Reel 04" />
                 <span class="reel-number">04</span>
                 <span class="reel-icon" aria-hidden="true">◉</span>
               </div>
@@ -244,7 +262,7 @@
                   <span class="placeholder-icon">✚</span>
                   <p>AQUÍ VA SCREENSHOT DE ESTADÍSTICAS</p>
                 </div>
-                <img src="assets/stats/stats-01.jpg" alt="Captura de estadísticas" />
+                <img data-stats-image src="" data-fallback-label="Captura de estadísticas" alt="Captura de estadísticas" />
               </div>
               <p>81.7% NO SEGUIDORES</p>
               <p>18.3% SEGUIDORES</p>
@@ -258,7 +276,7 @@
                   <span class="placeholder-icon">✚</span>
                   <p>AQUÍ VA IMAGEN DE REEL / COMUNIDAD</p>
                 </div>
-                <img data-community-thumb="0" src="" alt="Contenido de comunidad" />
+                <img data-community-thumb="0" data-fallback-label="Contenido de comunidad" src="" alt="Contenido de comunidad" />
               </div>
               <ul class="ig-stats">
                 <li>707 me gusta</li>
@@ -277,23 +295,23 @@
           <p class="section-subtitle">Fotografía de producto, lifestyle y contenido para marcas.</p>
           <div class="photos-grid stagger">
             <!-- REEMPLAZAR FOTO 01: assets/photos/foto-01.jpg -->
-            <figure class="placeholder-frame photo-card photo-card--a">
-              <img src="assets/photos/foto-01.jpg" alt="Foto 01 de portafolio" />
+            <figure class="placeholder-frame photo-card photo-card--a" data-a11y-label="Foto 01 de portafolio">
+              <img data-fallback-label="Foto 01" src="assets/photos/foto-01.jpg" alt="Foto 01 de portafolio" />
               <figcaption>AQUÍ VA FOTO 01</figcaption>
             </figure>
             <!-- REEMPLAZAR FOTO 02: assets/photos/foto-02.jpg -->
-            <figure class="placeholder-frame photo-card photo-card--b">
-              <img src="assets/photos/foto-02.jpg" alt="Foto 02 de portafolio" />
+            <figure class="placeholder-frame photo-card photo-card--b" data-a11y-label="Foto 02 de portafolio">
+              <img data-fallback-label="Foto 02" src="assets/photos/foto-02.jpg" alt="Foto 02 de portafolio" />
               <figcaption>AQUÍ VA FOTO 02</figcaption>
             </figure>
             <!-- REEMPLAZAR FOTO 03: assets/photos/foto-03.jpg -->
-            <figure class="placeholder-frame photo-card photo-card--c">
-              <img src="assets/photos/foto-03.jpg" alt="Foto 03 de portafolio" />
+            <figure class="placeholder-frame photo-card photo-card--c" data-a11y-label="Foto 03 de portafolio">
+              <img data-fallback-label="Foto 03" src="assets/photos/foto-03.jpg" alt="Foto 03 de portafolio" />
               <figcaption>AQUÍ VA FOTO 03</figcaption>
             </figure>
             <!-- REEMPLAZAR FOTO 04: assets/photos/foto-04.jpg -->
-            <figure class="placeholder-frame photo-card photo-card--d">
-              <img src="assets/photos/foto-04.jpg" alt="Foto 04 de portafolio" />
+            <figure class="placeholder-frame photo-card photo-card--d" data-a11y-label="Foto 04 de portafolio">
+              <img data-fallback-label="Foto 04" src="assets/photos/foto-04.jpg" alt="Foto 04 de portafolio" />
               <figcaption>AQUÍ VA FOTO 04</figcaption>
             </figure>
           </div>
@@ -308,51 +326,51 @@
             movimiento no solo se publica: se vive.
           </p>
           <div class="community-grid stagger">
-            <article class="community-card" data-modal-type="video" data-community-index="0">
+            <article class="community-card" data-modal-type="video" data-community-index="0" data-a11y-label="Video Comunidad 01">
               <!-- REEMPLAZAR VIDEO COMUNIDAD 01: assets/community/community-01.mp4 -->
               <div class="placeholder-frame">
-                <img data-community-thumb="0" src="" alt="Video Comunidad 01" />
-                <button class="play-button" aria-label="Abrir video comunidad 01">▶</button>
+                <img data-community-thumb="0" data-fallback-label="Video Comunidad 01" src="" alt="Video Comunidad 01" />
+                <button type="button" class="play-button" aria-label="Abrir video comunidad 01">▶</button>
               </div>
               <p>Video Comunidad 01</p>
             </article>
-            <article class="community-card" data-modal-type="video" data-community-index="1">
+            <article class="community-card" data-modal-type="video" data-community-index="1" data-a11y-label="Video Comunidad 02">
               <!-- REEMPLAZAR VIDEO COMUNIDAD 02: assets/community/community-02.mp4 -->
               <div class="placeholder-frame">
-                <img data-community-thumb="1" src="" alt="Video Comunidad 02" />
-                <button class="play-button" aria-label="Abrir video comunidad 02">▶</button>
+                <img data-community-thumb="1" data-fallback-label="Video Comunidad 02" src="" alt="Video Comunidad 02" />
+                <button type="button" class="play-button" aria-label="Abrir video comunidad 02">▶</button>
               </div>
               <p>Video Comunidad 02</p>
             </article>
-            <article class="community-card" data-modal-type="video" data-community-index="2">
+            <article class="community-card" data-modal-type="video" data-community-index="2" data-a11y-label="Video Comunidad 03">
               <!-- REEMPLAZAR VIDEO COMUNIDAD 03: assets/community/community-03.mp4 -->
               <div class="placeholder-frame">
-                <img data-community-thumb="2" src="" alt="Video Comunidad 03" />
-                <button class="play-button" aria-label="Abrir video comunidad 03">▶</button>
+                <img data-community-thumb="2" data-fallback-label="Video Comunidad 03" src="" alt="Video Comunidad 03" />
+                <button type="button" class="play-button" aria-label="Abrir video comunidad 03">▶</button>
               </div>
               <p>Video Comunidad 03</p>
             </article>
-            <article class="community-card" data-modal-type="video" data-community-index="3">
+            <article class="community-card" data-modal-type="video" data-community-index="3" data-a11y-label="Video Comunidad 04">
               <!-- REEMPLAZAR VIDEO COMUNIDAD 04: assets/community/community-04.mp4 -->
               <div class="placeholder-frame">
-                <img data-community-thumb="3" src="" alt="Video Comunidad 04" />
-                <button class="play-button" aria-label="Abrir video comunidad 04">▶</button>
+                <img data-community-thumb="3" data-fallback-label="Video Comunidad 04" src="" alt="Video Comunidad 04" />
+                <button type="button" class="play-button" aria-label="Abrir video comunidad 04">▶</button>
               </div>
               <p>Video Comunidad 04</p>
             </article>
-            <article class="community-card" data-modal-type="video" data-community-index="4">
+            <article class="community-card" data-modal-type="video" data-community-index="4" data-a11y-label="Video Comunidad 05">
               <!-- REEMPLAZAR VIDEO COMUNIDAD 05: assets/community/community-05.mp4 -->
               <div class="placeholder-frame">
-                <img data-community-thumb="4" src="" alt="Video Comunidad 05" />
-                <button class="play-button" aria-label="Abrir video comunidad 05">▶</button>
+                <img data-community-thumb="4" data-fallback-label="Video Comunidad 05" src="" alt="Video Comunidad 05" />
+                <button type="button" class="play-button" aria-label="Abrir video comunidad 05">▶</button>
               </div>
               <p>Video Comunidad 05</p>
             </article>
-            <article class="community-card" data-modal-type="video" data-community-index="5">
+            <article class="community-card" data-modal-type="video" data-community-index="5" data-a11y-label="Video Comunidad 06">
               <!-- REEMPLAZAR VIDEO COMUNIDAD 06: assets/community/community-06.mp4 -->
               <div class="placeholder-frame">
-                <img data-community-thumb="5" src="" alt="Video Comunidad 06" />
-                <button class="play-button" aria-label="Abrir video comunidad 06">▶</button>
+                <img data-community-thumb="5" data-fallback-label="Video Comunidad 06" src="" alt="Video Comunidad 06" />
+                <button type="button" class="play-button" aria-label="Abrir video comunidad 06">▶</button>
               </div>
               <p>Video Comunidad 06</p>
             </article>
@@ -375,7 +393,12 @@
               <p>AQUÍ VA FOTO FINAL</p>
               <p>ESPACIO PARA IMAGEN ÁNIMO CABRONES</p>
             </div>
-            <img data-config-image="finalPhoto" src="" alt="Foto final Ánimo Cabrones" />
+            <img
+              data-config-image="finalPhoto"
+              data-fallback-label="Foto final Ánimo Cabrones"
+              src=""
+              alt="Foto final Ánimo Cabrones"
+            />
           </article>
           <p class="closing-quote red-underline">Hagamos algo que resuene.</p>
 
@@ -384,17 +407,17 @@
             <p data-brand="location">GDL, JAL</p>
             <p data-brand="handle">@animocabrones</p>
             <nav class="social-links" aria-label="Enlaces finales a redes sociales">
-              <a href="#" id="instagram-link-2" target="_blank" rel="noopener noreferrer">Instagram</a>
-              <a href="#" id="tiktok-link-2" target="_blank" rel="noopener noreferrer">TikTok</a>
-              <a href="#" id="youtube-link-2" target="_blank" rel="noopener noreferrer">YouTube</a>
+              <a href="#" id="instagram-link-2" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram de Ánimo Cabrones">Instagram</a>
+              <a href="#" id="tiktok-link-2" target="_blank" rel="noopener noreferrer" aria-label="Abrir TikTok de Ánimo Cabrones">TikTok</a>
+              <a href="#" id="youtube-link-2" target="_blank" rel="noopener noreferrer" aria-label="Abrir YouTube de Ánimo Cabrones">YouTube</a>
             </nav>
           </aside>
 
           <div class="cta-buttons">
             <a id="email-link" href="#" class="btn" aria-label="Enviar correo">Escríbenos</a>
-            <a id="instagram-btn" href="#" class="btn" target="_blank" rel="noopener noreferrer">Ver Instagram</a>
-            <a id="tiktok-btn" href="#" class="btn" target="_blank" rel="noopener noreferrer">Ver TikTok</a>
-            <a id="youtube-btn" href="#" class="btn" target="_blank" rel="noopener noreferrer">Ver YouTube</a>
+            <a id="instagram-btn" href="#" class="btn" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram de Ánimo Cabrones">Ver Instagram</a>
+            <a id="tiktok-btn" href="#" class="btn" target="_blank" rel="noopener noreferrer" aria-label="Abrir TikTok de Ánimo Cabrones">Ver TikTok</a>
+            <a id="youtube-btn" href="#" class="btn" target="_blank" rel="noopener noreferrer" aria-label="Abrir YouTube de Ánimo Cabrones">Ver YouTube</a>
           </div>
 
           <p class="section-footer-line">TU MARCA PODRÍA SER LA SIGUIENTE.</p>
