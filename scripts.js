@@ -187,7 +187,6 @@ function setupLightbox() {
       const video = document.createElement("video");
       video.src = payload.video;
       video.controls = true;
-      video.autoplay = true;
       video.playsInline = true;
       mediaContainer.appendChild(video);
     } else {
