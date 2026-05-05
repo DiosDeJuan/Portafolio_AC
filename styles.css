@@ -81,13 +81,13 @@ body::after {
 .section {
   width: min(100% - 2rem, var(--max));
   margin: 0 auto;
-  padding: clamp(4rem, 8vw, 7rem) 0;
+  padding: clamp(3.7rem, 7.6vw, 6.6rem) 0;
   position: relative;
   border-bottom: 1px dashed rgba(0, 0, 0, 0.24);
 }
 
 .section + .section {
-  margin-top: -1px;
+  margin-top: -0.4rem;
 }
 
 .section::before {
@@ -361,7 +361,7 @@ img.is-missing {
 
 .contact-box {
   border: 1px solid var(--line);
-  padding: 1rem;
+  padding: 1rem 1rem 0.9rem;
   background: rgba(242, 238, 230, 0.75);
   max-width: 360px;
   box-shadow: 0 0.5rem 0 rgba(0, 0, 0, 0.08);
@@ -373,6 +373,11 @@ img.is-missing {
   gap: 0.7rem;
 }
 
+.social-links a,
+.cta-buttons .btn {
+  border-radius: 0.15rem;
+}
+
 a {
   color: var(--ink);
   text-underline-offset: 0.2em;
@@ -381,6 +386,14 @@ a {
 a:hover,
 a:focus-visible {
   color: var(--accent);
+}
+
+a.is-link-disabled,
+a.is-link-disabled:hover,
+a.is-link-disabled:focus-visible {
+  color: rgba(0, 0, 0, 0.45);
+  text-decoration: line-through;
+  cursor: not-allowed;
 }
 
 .feature-grid,
@@ -405,6 +418,7 @@ a:focus-visible {
   padding: 1rem;
   background: rgba(242, 238, 230, 0.45);
   position: relative;
+  box-shadow: 0 0.3rem 0 rgba(0, 0, 0, 0.04);
 }
 
 .feature-card h3,
@@ -500,6 +514,10 @@ a:focus-visible {
 
 .metric-card {
   text-align: center;
+  min-height: 150px;
+  display: grid;
+  align-content: center;
+  gap: 0.2rem;
 }
 
 .metric-card strong {
@@ -575,6 +593,10 @@ a:focus-visible {
   left: 0.7rem;
   bottom: 0.5rem;
   font-family: "Oswald", sans-serif;
+  background: rgba(0, 0, 0, 0.72);
+  color: var(--offwhite);
+  padding: 0.08rem 0.42rem;
+  letter-spacing: 0.04em;
 }
 
 .community-grid {
@@ -645,6 +667,7 @@ a:focus-visible {
   background: var(--offwhite);
   border: 1px solid var(--line);
   padding: 1rem;
+  box-shadow: 0 0.7rem 0 rgba(0, 0, 0, 0.22);
 }
 
 .lightbox__close {
@@ -796,7 +819,12 @@ a:focus-visible {
 
   .section {
     width: min(100% - 1.3rem, var(--max));
-    padding: 3rem 0;
+    padding: 2.7rem 0;
+  }
+
+  .section::before,
+  .section::after {
+    opacity: 0.4;
   }
 
   .feature-grid,
@@ -831,11 +859,26 @@ a:focus-visible {
   }
 
   .phone-mockup .placeholder-frame {
-    min-height: 360px;
+    min-height: 300px;
   }
 
   .cta-buttons .btn {
     flex: 1 1 100%;
+  }
+
+  .contact-box,
+  .community-card,
+  .reel-card,
+  .metric-card,
+  .panel,
+  .sales-box,
+  .feature-card {
+    padding: 0.88rem;
+  }
+
+  .banner-line {
+    width: 100%;
+    text-align: center;
   }
 }
 

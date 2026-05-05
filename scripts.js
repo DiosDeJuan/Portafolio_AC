@@ -1,33 +1,52 @@
 const CONFIG = {
   brand: {
+    // CAMBIAR AQUÍ: correo principal
     email: "hola@animocabrones.com",
+    // CAMBIAR AQUÍ: ubicación
     location: "GDL, JAL",
+    // CAMBIAR AQUÍ: usuario @animocabrones
     handle: "@animocabrones"
   },
   links: {
-    // CAMBIAR AQUÍ LINKS SOCIALES Y DE CONTACTO
+    // CAMBIAR AQUÍ: link Instagram
     instagram: "CAMBIAR_AQUI_LINK_INSTAGRAM",
+    // CAMBIAR AQUÍ: link TikTok
     tiktok: "CAMBIAR_AQUI_LINK_TIKTOK",
+    // CAMBIAR AQUÍ: link YouTube
     youtube: "CAMBIAR_AQUI_LINK_YOUTUBE",
     email: "mailto:hola@animocabrones.com"
   },
   images: {
-    // CAMBIAR AQUÍ ROSTROS, HERO Y FOTO FINAL
+    // CAMBIAR AQUÍ: rostro principal
     faceMain: "assets/faces/rostro-principal.png",
+    // CAMBIAR AQUÍ: rostro con lentes
     faceGlasses: "assets/faces/rostro-lentes.png",
+    // CAMBIAR AQUÍ: imagen principal de portada
     heroMain: "assets/hero/imagen-principal.jpg",
+    // CAMBIAR AQUÍ: foto final
     finalPhoto: "assets/final/foto-final.jpg",
+    // CAMBIAR AQUÍ: screenshot de estadísticas
     statsMain: "assets/stats/stats-01.jpg"
   },
   photos: [
-    // CAMBIAR AQUÍ FOTOS DE PORTAFOLIO
+    // CAMBIAR AQUÍ: foto 01
     { title: "Foto 01", image: "assets/photos/foto-01.jpg" },
+    // CAMBIAR AQUÍ: foto 02
     { title: "Foto 02", image: "assets/photos/foto-02.jpg" },
+    // CAMBIAR AQUÍ: foto 03
     { title: "Foto 03", image: "assets/photos/foto-03.jpg" },
+    // CAMBIAR AQUÍ: foto 04
     { title: "Foto 04", image: "assets/photos/foto-04.jpg" }
   ],
+  metrics: [
+    // CAMBIAR AQUÍ: métricas principales
+    { value: "54K+", label: "VIEWS" },
+    { value: "3.1K+", label: "INTERACCIONES" },
+    { value: "160+", label: "COMPARTIDOS Y GUARDADOS" },
+    { value: "REAL", label: "ALCANCE ORGÁNICO" }
+  ],
   reels: [
-    // CAMBIAR AQUÍ REELS Y MÉTRICAS
+    // CAMBIAR AQUÍ: reel 01
     {
       title: "Reel 01",
       image: "assets/reels/reel-01.jpg",
@@ -35,6 +54,7 @@ const CONFIG = {
       interactions: "610",
       url: "CAMBIAR_AQUI_LINK_REEL_01"
     },
+    // CAMBIAR AQUÍ: reel 02
     {
       title: "Reel 02",
       image: "assets/reels/reel-02.jpg",
@@ -42,6 +62,7 @@ const CONFIG = {
       interactions: "1.4K",
       url: "CAMBIAR_AQUI_LINK_REEL_02"
     },
+    // CAMBIAR AQUÍ: reel 03
     {
       title: "Reel 03",
       image: "assets/reels/reel-03.jpg",
@@ -49,6 +70,7 @@ const CONFIG = {
       interactions: "848",
       url: "CAMBIAR_AQUI_LINK_REEL_03"
     },
+    // CAMBIAR AQUÍ: reel 04
     {
       title: "Reel 04",
       image: "assets/reels/reel-04.jpg",
@@ -58,37 +80,42 @@ const CONFIG = {
     }
   ],
   communityVideos: [
-    // CAMBIAR AQUÍ THUMBNAILS, VIDEOS Y LINKS DE COMUNIDAD
+    // CAMBIAR AQUÍ: video comunidad 01
     {
       title: "Video Comunidad 01",
       thumbnail: "assets/community/community-01.jpg",
       video: "assets/community/community-01.mp4",
       url: "CAMBIAR_AQUI_LINK_VIDEO_COMUNIDAD_01"
     },
+    // CAMBIAR AQUÍ: video comunidad 02
     {
       title: "Video Comunidad 02",
       thumbnail: "assets/community/community-02.jpg",
       video: "assets/community/community-02.mp4",
       url: "CAMBIAR_AQUI_LINK_VIDEO_COMUNIDAD_02"
     },
+    // CAMBIAR AQUÍ: video comunidad 03
     {
       title: "Video Comunidad 03",
       thumbnail: "assets/community/community-03.jpg",
       video: "assets/community/community-03.mp4",
       url: "CAMBIAR_AQUI_LINK_VIDEO_COMUNIDAD_03"
     },
+    // CAMBIAR AQUÍ: video comunidad 04
     {
       title: "Video Comunidad 04",
       thumbnail: "assets/community/community-04.jpg",
       video: "assets/community/community-04.mp4",
       url: "CAMBIAR_AQUI_LINK_VIDEO_COMUNIDAD_04"
     },
+    // CAMBIAR AQUÍ: video comunidad 05
     {
       title: "Video Comunidad 05",
       thumbnail: "assets/community/community-05.jpg",
       video: "assets/community/community-05.mp4",
       url: "CAMBIAR_AQUI_LINK_VIDEO_COMUNIDAD_05"
     },
+    // CAMBIAR AQUÍ: video comunidad 06
     {
       title: "Video Comunidad 06",
       thumbnail: "assets/community/community-06.jpg",
@@ -106,6 +133,7 @@ const SELECTORS = {
   configImage: "[data-config-image]",
   reelImage: "[data-reel-image]",
   reelCard: ".reel-card",
+  metricCard: ".metric-card",
   communityThumb: "[data-community-thumb]",
   photoCard: ".photo-card",
   statsImage: "[data-stats-image]",
@@ -140,6 +168,13 @@ const PLACEHOLDER_LINK_PREFIX = "CAMBIAR_AQUI";
 const selectOne = (selector, parent = document) => parent.querySelector(selector);
 const selectAll = (selector, parent = document) => Array.from(parent.querySelectorAll(selector));
 
+function isConfiguredUrl(url) {
+  if (!url) return false;
+  if (url === "#") return false;
+  if (url.startsWith("mailto:")) return true;
+  return !url.startsWith(PLACEHOLDER_LINK_PREFIX);
+}
+
 function createElement(tagName, className, textContent) {
   const element = document.createElement(tagName);
   if (className) element.className = className;
@@ -164,8 +199,18 @@ function setupSocialLinks() {
 
   linkMap.forEach(([selector, url, label]) => {
     selectAll(selector).forEach((anchor) => {
-      anchor.href = url;
       anchor.setAttribute("aria-label", label);
+      if (isConfiguredUrl(url)) {
+        anchor.href = url;
+        anchor.classList.remove("is-link-disabled");
+        anchor.removeAttribute("aria-disabled");
+        anchor.removeAttribute("tabindex");
+      } else {
+        anchor.href = "#";
+        anchor.classList.add("is-link-disabled");
+        anchor.setAttribute("aria-disabled", "true");
+        anchor.tabIndex = -1;
+      }
     });
   });
 }
@@ -271,6 +316,18 @@ function renderReels() {
   });
 }
 
+function renderMetrics() {
+  selectAll(SELECTORS.metricCard).forEach((card) => {
+    const index = Number(card.dataset.metricIndex);
+    const metricItem = CONFIG.metrics[index];
+    if (!metricItem) return;
+    const valueNode = selectOne("strong", card);
+    const labelNode = selectOne("span", card);
+    if (valueNode) valueNode.textContent = metricItem.value;
+    if (labelNode) labelNode.textContent = metricItem.label;
+  });
+}
+
 function renderCommunityVideos() {
   selectAll(SELECTORS.communityThumb).forEach((imageElement) => {
     const index = Number(imageElement.dataset.communityThumb);
@@ -343,12 +400,6 @@ function setupLightbox() {
   const lightboxClose = selectOne(SELECTORS.lightbox.close, lightboxRoot);
   const pageRoot = selectOne(SELECTORS.root);
   let lastFocusedElement = null;
-
-  function isConfiguredUrl(url) {
-    if (!url) return false;
-    if (url === "#") return false;
-    return !url.startsWith(PLACEHOLDER_LINK_PREFIX);
-  }
 
   function closeLightbox() {
     lightboxRoot.classList.remove("is-open");
@@ -492,12 +543,13 @@ function setupLightbox() {
   });
 }
 
-function initializeLandingV2() {
+function initializeLandingV3() {
   setBrandContent();
   setupSocialLinks();
   setupImageLoadingAttributes();
   renderConfigImages();
   renderReels();
+  renderMetrics();
   renderCommunityVideos();
   renderPhotos();
   setupInteractiveCards();
@@ -505,4 +557,4 @@ function initializeLandingV2() {
   setupLightbox();
 }
 
-document.addEventListener("DOMContentLoaded", initializeLandingV2);
+document.addEventListener("DOMContentLoaded", initializeLandingV3);
