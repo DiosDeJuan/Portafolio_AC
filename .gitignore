@@ -1,0 +1,7 @@
+IMG/AnimoAnuncio_files/
+IMG/AnimoAnuncio.html
+*.descarga
+*.enc
+node_modules/
+.DS_Store
+Thumbs.db
