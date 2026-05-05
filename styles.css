@@ -599,7 +599,6 @@ a:focus-visible {
 }
 
 .btn {
-  display: inline-block;
   border: 1px solid var(--ink);
   padding: 0.56rem 1rem;
   min-height: 44px;
