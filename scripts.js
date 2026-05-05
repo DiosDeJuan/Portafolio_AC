@@ -315,7 +315,7 @@ function renderReels() {
     const card = imageElement.closest(SELECTORS.reelCard);
     const footer = card ? selectOne("footer", card) : null;
     if (footer) {
-      footer.textContent = "";
+      footer.replaceChildren();
       const viewsNode = createElement("strong", "", `${reelItem.views} vistas`);
       const interactionsNode = createElement("span", "", `${reelItem.interactions} interacciones`);
       footer.append(viewsNode, interactionsNode);
