@@ -163,7 +163,7 @@ const ARIA_LABELS = {
 
 const INTERACTIVE_CARD_SELECTORS = [".reel-card", ".phone-mockup", ".community-card", ".photo-card"];
 const REDUCED_MOTION_QUERY = window.matchMedia("(prefers-reduced-motion: reduce)");
-const PLACEHOLDER_LINK_PREFIX = "CAMBIAR_AQUI";
+const UNCONFIGURED_LINK_PREFIX = "CAMBIAR_AQUI";
 
 const selectOne = (selector, parent = document) => parent.querySelector(selector);
 const selectAll = (selector, parent = document) => Array.from(parent.querySelectorAll(selector));
@@ -172,7 +172,7 @@ function isConfiguredUrl(url) {
   if (!url) return false;
   if (url === "#") return false;
   if (url.startsWith("mailto:")) return true;
-  return !url.startsWith(PLACEHOLDER_LINK_PREFIX);
+  return !url.startsWith(UNCONFIGURED_LINK_PREFIX);
 }
 
 function createElement(tagName, className, textContent) {
@@ -271,7 +271,11 @@ function attachImageFallback(imageElement, options = {}) {
 
   imageElement.addEventListener("error", onError, { once: true });
   const currentSource = imageElement.getAttribute("src");
-  if (!currentSource || (imageElement.complete && imageElement.naturalWidth === 0)) onError();
+  if (!currentSource) {
+    onError();
+    return;
+  }
+  if (imageElement.complete && imageElement.naturalWidth === 0) onError();
 }
 
 function setupImageLoadingAttributes() {
@@ -311,7 +315,10 @@ function renderReels() {
     const card = imageElement.closest(SELECTORS.reelCard);
     const footer = card ? selectOne("footer", card) : null;
     if (footer) {
-      footer.innerHTML = `<strong>${reelItem.views} vistas</strong><span>${reelItem.interactions} interacciones</span>`;
+      footer.textContent = "";
+      const viewsNode = createElement("strong", "", `${reelItem.views} vistas`);
+      const interactionsNode = createElement("span", "", `${reelItem.interactions} interacciones`);
+      footer.append(viewsNode, interactionsNode);
     }
   });
 }
@@ -412,7 +419,11 @@ function setupLightbox() {
   function createMediaFallback(titleText, type) {
     const fallback = createElement("div", "lightbox-fallback");
     const pendingText = type === "video" ? "VIDEO PENDIENTE" : "IMAGEN PENDIENTE";
-    fallback.innerHTML = `<span aria-hidden="true">✚</span><p>${pendingText}</p><p>${titleText}</p>`;
+    const icon = createElement("span", "", "✚");
+    icon.setAttribute("aria-hidden", "true");
+    const pendingNode = createElement("p", "", pendingText);
+    const titleNode = createElement("p", "", titleText);
+    fallback.append(icon, pendingNode, titleNode);
     return fallback;
   }
 
