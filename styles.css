@@ -60,6 +60,12 @@ body::after {
   position: relative;
 }
 
+.grunge-bg {
+  background:
+    radial-gradient(circle at 8% 18%, rgba(0, 0, 0, 0.08), transparent 24%),
+    radial-gradient(circle at 92% 76%, rgba(0, 0, 0, 0.08), transparent 26%);
+}
+
 .section {
   width: min(100% - 2rem, var(--max));
   margin: 0 auto;
