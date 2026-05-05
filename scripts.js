@@ -188,6 +188,7 @@ function setupLightbox() {
       video.src = payload.video;
       video.controls = true;
       video.playsInline = true;
+      video.setAttribute("aria-label", payload.title || "Video de contenido");
       mediaContainer.appendChild(video);
     } else {
       const image = document.createElement("img");
